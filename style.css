@@ -489,8 +489,19 @@ margin-top: 10px;
 /* footer project section */
 
 .footer{
-    height: 200px;
     background: #1c1f21;
+}
+
+.footer-content{
+    border: solid transparent;
+}
+
+.footer-content .container{
+    color: grey;
+}
+
+#footer-logo{
+    font-weight: bold;
 }
 
 /* footer project section */
