@@ -1,0 +1,504 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* navbar */
+
+body{
+    height: 100%;
+}
+
+/*========================================== INDEX.PHP CSS END=======================================*/
+
+
+.bt-navbar {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    border-bottom: 1px solid rgba(125, 124, 124, .1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .8);
+    background: #1d1e1f;
+}
+
+.dash-wrapper{
+    background-image: url("https://lh3.googleusercontent.com/fife/AGXqzDlBBT-a5l96r9fUdoWGgx3pB6Tyj6XCEmo9kOW3WArjVWNzTNFdCybfGTEfubZPSbH443bNM1sJ9cDqnKAd18sJse8595dIgoutLDj33c45NOjljC9FBTNlGb8DLK7DbpyhN4S-PRoAz3T9WRTqSZewq33EIO3fPflnSUoFZkjAZmAizfMbM8RWeBueV5CK27z9XhrV7Fh-V69ySvagGTEIK4i_Qc9Ub-hjE0G8WoKox0hNaHMI99izhDmodUwmrlgqQxokSXqTS7aJ4-NiB6GhLKAw7jwDOOdQc0fwouSwk6FpFfMRkh4a6vqQF6E5PO6w3ta54KiXsf-poEDkrI5SKJ-LvefzwnwxMZVaNTEkjlIZmv5bRBZcdzaAQPtARGjrVZ3XvymeEfplHJKLUtMfjAwNyQmzhsryErRCtfcaP8IzXsm5dhZ7dpgZf_i9iSwjC6Wx6CwpF9h4qaIZd8iSEXVimSVS1p6qOeRsBUkMpb6Tq38guLM9G26nSq2rlgD5XSg3wBEz-VcjdJ67tzI46xYKR6qHt_5APi45YWSKxdxu9eX7PldVPb33K3AOs30-ccfxb4Nc2b4N6DBtKC9Xp7ynVi4Mf7RxI8cfFw5jhvKiOU7nCztl3NprrHITG4-GqR5CmYBB5tfLPJKxi5bYQTRj1tDiKGfjD5GSKOzcxd3j2_glzD_H_TZPFd5GVWpbRqTdiBtun7bcWO957hdWfOdT2-XYEVW0WLNqzQtDpqgE59I2RY2A5ODJhk6-iT9HH1BiCiRhUeSOzfvBV2r-OVVjrO6sd_sjswoCgeVHa0q8OvJ9CPoXLMYL_HpoJGnfvQyksJMaeQt6cuW4AV4pSKGjYvB4sKqEmJrTsq2KVPJKq869E0t4ZC9ezkzlEqZpfN-SSUTDXMCq-JgcP1rjFyoRM62VuT8LPJPGhNHFYCSrnYaJ4N6DWK-Dqg9HfeVrmlyHS6TiKKghIVQrMN1dS1P8-nkzjLVdol6EpwP_EkCq1yZn8jvOxtCdGapqdE8N2ldtJcvj37iDBfOWWQPoRstpz4-tCPpbBz7zh2y0qc8hv7wqByBfnHgNlFUAetNZfrftvtlFp03FwuFeQrVab2Ow4CRhaVRu7E8y2-1aA30MUJIMZuyREX81UTfU1SZmRm5raqLHenWiC-cGf6hE34C4k5RWAo6ByPPDIO4CaAJqO6S6dMNSU2lJxnlEK23mz3hnrfQiK2zw5lkJrjrGsfmJAtxe9czPpe9Mr7VlUjaGHOIF-TKoD0-25yEjz9_8UPimRWqkxjmWikFv6IJSD-QARGCvKssKSnEPKSd4RgSVzT9rY8xicVCf26RvuFzBJiIxRYoetKg14Ew8DE7tSd_1gZVzPIUAxD8tL8hcZ5bsYpXC4zCYEY9KzEdS5e3yN5_ZU7tlyvW9cbq0INZyvoXsCqa70wKCBD5Imn7me9buCW4cC3Eqr78Tn6QkRftyE-C1C9n65FpZ1mOMwOdptAnyUNGjBBk9KEQcgf0n6yJfM90kiXWfVFjJSyps_Ts1QliGDJZF7o_aLH4rEqpsthgFBIKgXoTHboeKv4rvXOtjvrURmGhNmW4YCLEe0m1BGKaHoVDje6X_2E9wh9Gogg99EbN_zjKfcklYccYSaIVAd7M8vxyOyOyfSFNO0AcYLcZg3oMmv66n3bNNd6PH9q8q9SZQPhg6fIdgxuRJcuOb5HmvB_KA5SiWkmrM7hlAUXKsOqUCqLD202rppye7XHClbZwRRs_E3A_XR7qt_tY_PwfbsxEaBwAIYTa65OXTllRJ7hV0f3uRgHGgEfW8qEGuYUFs7XZY2y15FaUWKRUUaVB3IEI7=s953-w953-h953-s-no-gm?authuser=0");
+    background-size: cover;
+    background-position: center;
+    height: 303.4vh;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-item a {
+    font-weight: bold;
+}
+
+.nav-item a:hover {
+    transition: .3s ease-in-out;
+}
+
+.bt-nav-item{
+    margin-right: 50px;
+}
+
+
+
+.bt-nav-item li {
+    margin-left: 100px;
+}
+
+.bt-nav-item2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bt-nav-item2 li{
+    text-decoration: none;
+    display: flex;
+}
+
+.bt-nav-item2 a{
+    margin-right: 50px;
+}
+
+.bt-nav-item2 a i{
+    color: #f8f9fa;
+}
+
+/* navbar end */
+
+/* hero section */
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    height: 650px;
+}
+
+
+
+.hero-img {
+    border-radius: 10px;
+    background-image: url("bg-login.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    width: 1600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .7);
+    transition: transform 0.4s ease-in-out;
+}
+
+.hero-img:hover{
+    transform: scale(1.02);
+    transition-delay: .2s;
+}
+
+.hero-img:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .hero-img:hover::after {
+    transform: scale(1.1); /* Menjaga elemen tetap teranimasi saat keluar dari hover */
+  }
+
+
+  .hero-text{
+    color: #f8f9fa;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-text h1{
+    display: flex;
+    font-weight: 900;
+    transform: scale(2);
+    letter-spacing: 25px;
+  }
+
+  .hero-text h1 span{
+    color: #1c1f21;
+  }
+
+
+/* hero section */
+
+/* content section */
+
+.content{
+    height: 108vh;
+    background: #1d1e1f;
+}
+
+.product-dashboard{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.title h1{
+    font-weight: 900;
+    scale: 1.5;
+    color: #fff;
+    text-shadow: 0 10px 50px rgba(225, 225, 225, .4);
+}
+
+.i-header{
+    position: relative;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.i-header i{
+    color: #1c1f21;
+    transform: scale(3);
+    color: #fff;
+}
+
+.product-card{
+    margin-top: 20px;
+}
+
+.product-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    margin-left: 150px;
+    margin-right: 150px;
+    border-radius: 10px;
+    box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
+    backdrop-filter: blur(5px);
+    
+}
+.card-group{
+    width: 80%;
+}
+
+.card{
+    box-shadow: 0 2px 10px #000000b3;
+}
+
+#card-middle{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.card .btn{
+    background: #1c1f21;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 20px;
+}
+.card .btn:hover{
+    background: #fff;
+    color: #1c1f21;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 1px solid #1c1f21;
+}
+
+.card .btn{
+    background: #1c1f21;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 20px;
+}
+.card .btn:hover{
+    background: #fff;
+    color: #1c1f21;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 1px solid #1c1f21;
+}
+
+.a-detail{
+    color: #1c1f21;
+}
+
+.a-more{
+    display: flex;
+    align-items: center;
+}
+
+.more{
+    border: 1px solid #f8f9fa;
+    border-radius: 5px;
+    border-left: none;
+    width: 80px;
+    height: 400px;
+    margin-left: 40px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more:hover{
+    background: rgba(248, 249, 250, .3);
+    transition: .15s ease-in-out;
+}
+
+
+.more .next-box i{
+    color: #f8f9fa;
+    width: 80px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.more .next-box p{
+margin-top: 10px;
+    
+}
+
+.more .next-box i:hover{
+    color: #1c1f21;
+    transition: .15s ease-in-out;
+}
+
+/* content section end */
+
+
+/* index about section */
+
+.index-about{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* index about section */
+
+
+/*========================================== INDEX.PHP CSS END=======================================*/
+
+
+
+/*========================================== PRODUCT.PHP CSS =======================================*/
+
+
+/* content project section */
+
+.content-container{
+    /* border: solid red; */
+    height: 130vh;
+}
+
+.main-content{
+    border: none;
+    border-left: 1px solid rgba(28, 31, 33, .2);
+    border-right: 1px solid rgba(28, 31, 33, .2);
+    height: 130vh;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.title-product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 15px;
+}
+
+.title-product h1{
+    font-weight: 900;
+    scale: 1.5;
+    color: #1c1f21;
+    text-shadow: 0 0 50px rgba(29, 30, 31, .7);
+}
+
+.card-content{
+    /* border: solid purple; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* content project section */
+
+
+/* ===============================PRODUCT.PHP CSS END======================================*/
+
+
+
+
+
+/* ===============================ABOUT.PHP CSS ======================================*/
+
+.about-container{
+    /* border: solid red; */
+    height: 100vh;
+    /* border:  solid yellow; */
+
+}
+
+.about-wrapper{
+    /* border: solid purple; */
+    height: 100vh;
+}
+
+.main-about{
+    /* border: solid black; */
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-content{
+    border-left: 1px solid rgba(28, 31, 33, .2);
+    border-right: 1px solid rgba(28, 31, 33, .2);
+    height: 100vh;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.about-card{
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===============================ABOUT.PHP CSS END======================================*/
+
+
+
+
+/* ===============================ABOUT_PRODUCT.PHP CSS ======================================*/
+.about-product-container{
+    height: 197vh;
+
+
+}
+
+.about-product-wrapper{
+    /* border: solid purple; */
+    height: 197vh;
+    /* border: solid green; */
+}
+
+.about-product-content{
+    border-left: 1px solid rgba(28, 31, 33, .2);
+    border-right: 1px solid rgba(28, 31, 33, .2);
+    height: 100%;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.list-about{
+    margin-top: 20px;
+    /* border: solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-product-about{
+    /* border: solid red; */
+    height: 100rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-button{
+    display: flex;
+    align-items: center;
+}
+
+.cart-plus{
+    margin-left: 400px;
+}
+
+.cart-plus i{
+    color: #1d1e1f;
+}
+
+.cart-plus i:hover{
+    color: #b9b9b9;
+    transform: scale(1.3);
+    transition: .1s linear;
+}
+
+/* ===============================ABOUT_PRODUCT.PHP CSS END======================================*/
+
+
+
+
+/* ===============================DETAIL_PRODUCT.PHP CSS ======================================*/
+
+.list-about img{
+    border-radius: 10px;
+
+}
+.list-about hr{
+    border: .6px solid rgba(29, 30, 31, .3);
+    border-radius: 10px;
+}
+
+
+.main-product-detail{
+    height: 75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===============================DETAIL_PRODUCT.PHP CSS END======================================*/
+
+
+
+/* footer project section */
+
+.footer{
+    height: 200px;
+    background: #1c1f21;
+}
+
+/* footer project section */
+
+
+
+
+
+
+
+
