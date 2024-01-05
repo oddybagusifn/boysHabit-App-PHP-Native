@@ -87,15 +87,15 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                         </div>
                         <div class="card-content text-center">
                             <div class="container text-center">
-                                <div class="row" style="margin-top: 120px;">
+                                <div class="row pb-5">
 
                                     <?php
                                     while ($data = mysqli_fetch_array($query)) {
                                     ?>
 
                                         <div class="col-4">
-                                            <div class="card mt-2 mb-2 " style="width: 20rem;">
-                                                <img src="<?php echo $data['image'] ?>" class="card-img-top" alt="...">
+                                            <div class="card mt-2 mb-2 " style="width: 20rem;border-radius: 10px;">
+                                                <img src="<?php echo $data['image'] ?>" style="border-top-right-radius: 10px;border-top-left-radius: 10px;" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <div class="rating">
                                                         <?php
@@ -131,7 +131,6 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                     <?php
                                     }
                                     ?>
-
                                 </div>
                             </div>
                         </div>

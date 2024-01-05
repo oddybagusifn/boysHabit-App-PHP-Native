@@ -2,7 +2,7 @@
 
 include 'koneksi.php';
 
-$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id DESC");
+$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
 ?>
 
 <!DOCTYPE html>
@@ -75,14 +75,21 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id DESC");
 
             <!-- hero section -->
 
-            <div class="hero-main">
-                <div class="hero">
-                    <a href="product.php" style="text-decoration: none;">
-                        <div class="hero-img">
-                            <div class="hero-text">
-                                <h1>BOYS<span>HABIT</span></h1>
+            <div class="hero-section">
+                <div class="hero-main">
+                    <div class="hero">
+                        <a href="product.php" style="text-decoration: none;">
+                            <div class="hero-img">
+                                <div class="hero-text">
+                                    <h1>BOYS<span>HABIT</span></h1>
+                                </div>
                             </div>
-                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="i-header">
+                    <a href="#" onclick="scrollToPosition()">
+                        <i class="fa-solid fa-down-long"></i>
                     </a>
                 </div>
             </div>
@@ -91,17 +98,12 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id DESC");
 
 
             <!-- content section -->
+
             <div class="content">
-                <!-- header -->
-                <div class="i-header">
-                    <a href="#">
-                        <i class="fa-solid fa-down-long"></i>
-                    </a>
-                </div>
 
                 <!-- product card -->
 
-                <div class="product-dashboard">
+                <div class="product-dashboard" id="dash-product">
                     <div class="title">
                         <h1>CLOTHING PRODUCTS</h1>
                     </div>
@@ -112,44 +114,46 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id DESC");
                             <!-- product 1 -->
                             <?php
                             while ($data = mysqli_fetch_array($query)) {
-                            ?>
-                                <div class="card" style="width: 10rem;" id="card-middle">
-                                    <img src="<?php echo $data['image'] ?>" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <!-- rating loop -->
-                                        <div class="rating">
-                                            <?php
-                                            if ($data['rating'] > 0) {
-                                                $i = 0;
-                                                while ($i < $data['rating']) {
-                                            ?>
-                                                    <i class="fa-solid fa-star"></i>
-                                                <?php
-                                                    $i++;
-                                                }
-                                            } else if ($data['rating'] == 0) {
-                                                ?>
-                                                <i class="fa-regular fa-star"></i>
-                                            <?php
-                                            }
-                                            ?>
-                                            <?php
 
-                                            ?>
-                                            <p><?php echo $data['rating'] ?> / 5 </p>
+                                if ($data['id'] <= 3) {
+                            ?>
+                                    <div class="card" style="width: 10rem;border-radius: 10px;" id="card-middle">
+                                        <img src="<?php echo $data['image'] ?>" style="border-top-right-radius: 10px;border-top-left-radius: 10px;" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <!-- rating loop -->
+                                            <div class="rating">
+                                                <?php
+                                                if ($data['rating'] > 0) {
+                                                    $i = 0;
+                                                    while ($i < $data['rating']) {
+                                                ?>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    <?php
+                                                        $i++;
+                                                    }
+                                                } else if ($data['rating'] == 0) {
+                                                    ?>
+                                                    <i class="fa-regular fa-star"></i>
+                                                <?php
+                                                }
+                                                ?>
+                                                <?php
+
+                                                ?>
+                                                <p><?php echo $data['rating'] ?> / 5 </p>
+                                            </div>
+                                            <!-- rating loop -->
+                                            <h5 class="card-title"><?php echo $data['nama'] ?></h5>
+                                            <p><b><?php echo $data['harga'] ?> IDR</b></p>
+                                            <p class="card-text">Size: <?php echo $data['ukuran'] ?></p>
+                                            <p class="card-text">Stock: <?php echo $data['stok'] ?></p>
+                                            <hr>
+                                            <a href="#" class="btn mr-5 ml-2">Add to Cart</a>
+                                            <a href="detail_product.php?id=<?= $data['id'] ?>" class="a-detail">read more</a>
                                         </div>
-                                        <!-- rating loop -->
-                                        <h5 class="card-title"><?php echo $data['nama'] ?></h5>
-                                        <p><b><?php echo $data['harga'] ?> IDR</b></p>
-                                        <p class="card-text">Size: <?php echo $data['ukuran'] ?></p>
-                                        <p class="card-text">Stock: <?php echo $data['stok'] ?></p>
-                                        <hr>
-                                        <a href="#" class="btn mr-5 ml-2">Add to Cart</a>
-                                        <a href="detail_product.php?id=<?= $data['id'] ?>" class="a-detail">read more</a>
                                     </div>
-                                </div>
                             <?php
-                                $data = mysqli_fetch_array($query);
+                                }
                             }
                             ?>
                         </div>
@@ -217,7 +221,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id DESC");
                                         <!-- Grid column -->
                                         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                             <!-- Content -->
-                                            <h6 class="text-uppercase fw-bold" id="footer-logo">BOYSHABIT.</h6>
+                                            <h6 class="text-uppercase fw-bold" style="color: #f8f9fa;" id="footer-logo">BOYSHABIT.</h6>
                                             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f8f9fa; height: 2px" />
                                             <p>
                                                 Here you can use rows and columns to organize your footer
@@ -290,7 +294,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id DESC");
                                 Copyright © <script>
                                     document.write(new Date().getUTCFullYear());
                                 </script>
-                                <a class="text-white" href="https://www.instagram.com/oddybagusifn_">💓Made with Love💓</a>
+                                <a class="text-white" href="https://www.instagram.com/oddybagusifn_">Made with Love ❤</a>
                             </div>
                         </div>
                 </footer>
@@ -319,6 +323,11 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id DESC");
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- javascript -->
+    <script src="main.js">
+
+    </script>
 </body>
 
 </html>

@@ -83,32 +83,34 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                         <h1>ABOUT PRODUCTS</h1>
                     </div>
                     <div class="list-about">
-                        <?php
-                        while ($data = mysqli_fetch_assoc($query)) {
-                        ?>
-                            <div class="card mb-3" style="max-width: 1000px;border-radius: 10px;">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img src="<?php echo $data['image'] ?>" class="img-fluid rounded-start" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><?php echo $data['nama'] ?></h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <hr>
-                                            <div class="list-button">
-                                                <a href="detail_product.php?id=<?= $data['id'] ?>" class="btn btn-dark ml-2">check the details</a>
-                                                <a href="" class="cart-plus">
-                                                    <i class="fa-solid fa-cart-plus"></i>
-                                                </a>
+                        <div class="card-div">
+                            <?php
+                            while ($data = mysqli_fetch_assoc($query)) {
+                            ?>
+                                <div class="card mb-3" style="max-width: 1000px;border-radius: 10px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="<?php echo $data['image'] ?>" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?php echo $data['nama'] ?></h5>
+                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                                <hr>
+                                                <div class="list-button">
+                                                    <a href="detail_product.php?id=<?= $data['id'] ?>" class="btn btn-dark ml-2">check the details</a>
+                                                    <a href="" class="cart-plus">
+                                                        <i class="fa-solid fa-cart-plus"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php
-                        }
-                        ?>
+                            <?php
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
