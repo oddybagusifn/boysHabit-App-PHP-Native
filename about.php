@@ -2,7 +2,7 @@
 
 include 'koneksi.php';
 
-$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
+$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
 $data = mysqli_fetch_assoc($query);
 ?>
 
@@ -23,10 +23,15 @@ $data = mysqli_fetch_assoc($query);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>BoysHabit</title>
-
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </head>
 
 <body>
+
+    <div class="preloader">
+
+    </div>
+
     <div class="about-container">
         <div class="about-wrapper">
             <!-- navigation bar -->
@@ -34,7 +39,9 @@ $data = mysqli_fetch_assoc($query);
                 <div class="bt-navbar">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid hstack gap-3">
-                            <a class="navbar-brand p-2" href="#">boyshabit.</a>
+                            <a class="navbar-brand p-2" href="indes.php">
+                            <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                            boyshabit.</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -51,7 +58,7 @@ $data = mysqli_fetch_assoc($query);
                                             <a class="nav-link active" href="#">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Buku Tamu</a>
+                                            <a class="nav-link" href="buku-tamu.php">Buku Tamu</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -63,7 +70,7 @@ $data = mysqli_fetch_assoc($query);
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="cart.php">
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </a>
                                 </li>
@@ -100,7 +107,7 @@ $data = mysqli_fetch_assoc($query);
                                 <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <img src="https://cdn.discordapp.com/attachments/843046027958288407/1192752812006842498/brand-img.png?ex=65aa389e&is=6597c39e&hm=96fd0b354beb16178ce1c08ac845510b21c218798207a72bdd35b47a73487e04&" class="card-img-top" style="border-radius: 10px;" alt="...">
+                                            <img src="https://cdn.discordapp.com/attachments/843046027958288407/1193648203585826816/brand-img.png?ex=65ad7a84&is=659b0584&hm=b1257ec3b20dec7420ef6190495453988c03f49a85c9621fd3ecc6342f92a28e&" class="card-img-top" style="border-radius: 10px;" alt="...">
                                             <hr style="margin-top: 4px;">
                                             <h5 class="card-title">About This Website</h5>
                                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -188,7 +195,7 @@ $data = mysqli_fetch_assoc($query);
                                         <!-- Links -->
                                         <h6 class="text-uppercase fw-bold">Contact</h6>
                                         <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f8f9fa; height: 2px" />
-                                        <p><i class="fas fa-home mr-3"></i>Gajahmungkur,Semarang, Jawa Tengah, Indonesia</p>
+                                        <p><i class="fas fa-home mr-3"></i>Gajahmungkur, Semarang, Jawa Tengah, Indonesia</p>
                                         <p><i class="fas fa-envelope mr-3"></i>touroroy26@gmail.com</p>
                                         <p><i class="fas fa-phone mr-3"></i>+62 81393149021</p>
                                     </div>
@@ -204,7 +211,7 @@ $data = mysqli_fetch_assoc($query);
                             Copyright © <script>
                                 document.write(new Date().getUTCFullYear());
                             </script>
-                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">💓Made with Love💓</a>
+                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">Made with Love ❤</a>
                         </div>
                     </div>
             </footer>
@@ -220,6 +227,10 @@ $data = mysqli_fetch_assoc($query);
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="main.js">
+
+    </script>
 </body>
 
 </html>

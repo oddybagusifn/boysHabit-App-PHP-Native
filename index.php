@@ -2,7 +2,7 @@
 
 include 'koneksi.php';
 
-$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
+$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
 ?>
 
 <!DOCTYPE html>
@@ -22,10 +22,15 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>BoysHabit</title>
-
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </head>
 
 <body>
+    <div class="preloader">
+
+    </div>
+
+
     <div class="main">
         <div class="dash-wrapper">
             <!-- navigation bar -->
@@ -33,7 +38,9 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                 <div class="bt-navbar">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid hstack gap-3">
-                            <a class="navbar-brand p-2" href="#">boyshabit.</a>
+                            <a class="navbar-brand p-2" href="index.php">
+                            <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                                boyshabit.</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -50,7 +57,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                             <a class="nav-link" href="about.php">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Buku Tamu</a>
+                                            <a class="nav-link" href="buku-tamu.php">Buku Tamu</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -62,7 +69,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="cart.php">
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </a>
                                 </li>
@@ -115,7 +122,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                             <?php
                             while ($data = mysqli_fetch_array($query)) {
 
-                                if ($data['id'] <= 3) {
+                                if ($data['id_product'] <= 3) {
                             ?>
                                     <div class="card" style="width: 10rem;border-radius: 10px;" id="card-middle">
                                         <img src="<?php echo $data['image'] ?>" style="border-top-right-radius: 10px;border-top-left-radius: 10px;" class="card-img-top" alt="...">
@@ -148,8 +155,8 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                             <p class="card-text">Size: <?php echo $data['ukuran'] ?></p>
                                             <p class="card-text">Stock: <?php echo $data['stok'] ?></p>
                                             <hr>
-                                            <a href="#" class="btn mr-5 ml-2">Add to Cart</a>
-                                            <a href="detail_product.php?id=<?= $data['id'] ?>" class="a-detail">read more</a>
+                                            <button onclick="addCart()" class="btn mr-5 ml-2" id="shopping-box">Add to Cart</button>
+                                            <a href="detail_product.php?id_product=<?= $data['id_product'] ?>" class="a-detail" style="margin-left: 40px;">read more</a>
                                         </div>
                                     </div>
                             <?php
@@ -195,7 +202,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                 <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <img src="https://cdn.discordapp.com/attachments/843046027958288407/1192752812006842498/brand-img.png?ex=65aa389e&is=6597c39e&hm=96fd0b354beb16178ce1c08ac845510b21c218798207a72bdd35b47a73487e04&" class="card-img-top" style="border-radius: 10px;" alt="...">
+                                            <img src="https://cdn.discordapp.com/attachments/843046027958288407/1193648203585826816/brand-img.png?ex=65ad7a84&is=659b0584&hm=b1257ec3b20dec7420ef6190495453988c03f49a85c9621fd3ecc6342f92a28e&" class="card-img-top" style="border-radius: 10px;" alt="...">
                                             <hr style="margin-top: 4px;">
                                             <h5 class="card-title">About This Website</h5>
                                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -215,7 +222,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
 
 
                             <section class="">
-                                <div class="container text-center text-md-start mt-5">
+                                <div class="container text-center text-md-start mt-5" style="max-width: 100%;">
                                     <!-- Grid row -->
                                     <div class="row mt-3">
                                         <!-- Grid column -->
@@ -278,7 +285,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                             <!-- Links -->
                                             <h6 class="text-uppercase fw-bold">Contact</h6>
                                             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f8f9fa; height: 2px" />
-                                            <p><i class="fas fa-home mr-3"></i>Gajahmungkur,Semarang, Jawa Tengah, Indonesia</p>
+                                            <p><i class="fas fa-home mr-3"></i>Gajahmungkur, Semarang, Jawa Tengah, Indonesia</p>
                                             <p><i class="fas fa-envelope mr-3"></i>touroroy26@gmail.com</p>
                                             <p><i class="fas fa-phone mr-3"></i>+62 81393149021</p>
                                         </div>
@@ -308,7 +315,45 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
 
 
 
+        <!-- SHOPPING BOX -->
 
+        <div class="display-shop" id="add-to-cart">
+            <div class="add-to-cart">
+                <div class="card mb-3" style="max-width: 1200px;min-height: 300px;display: flex;border-radius: 10px;padding: 10px; padding-bottom: 25px;">
+                    <div class="close-button" style="margin-left: 1125px;">
+                        <button class="btn btn-dark" id="close-button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="row g-0" style="display: flex; justify-content: center;align-items: center;">
+                        <div class="col-md-4">
+                            <img src="" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Tes</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-button" style="border-top: 1px solid grey;margin-top: 20px;padding-top: 25px; margin-left: 20px;margin-right: 20px;display: flex; align-items: center;">
+                        <div class="input-item" style="display: flex; align-items: center; margin-left: 750px;">
+                            <button class="btn btn-dark mr-2">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <input type="text" value="1" style="display: flex;text-align: center;justify-content: center;">
+                            <button class="btn btn-dark ml-2" style="margin-right: 30px">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <a href="detail_product.php?id_product=<?= $data['id_product'] ?>" class="btn btn-dark ml-2">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHOPPING BOX END-->
 
         <!-- php contetn end -->
 

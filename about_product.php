@@ -2,7 +2,7 @@
 
 include 'koneksi.php';
 
-$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
+$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
 
 ?>
 
@@ -23,10 +23,14 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>BoysHabit</title>
-
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </head>
 
 <body>
+    <div class="preloader">
+
+    </div>
+
     <div class="about-product-container">
         <div class="about-product-wrapper">
             <!-- navigation bar -->
@@ -34,7 +38,9 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                 <div class="bt-navbar">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid hstack gap-3">
-                            <a class="navbar-brand p-2" href="#">boyshabit.</a>
+                            <a class="navbar-brand p-2" href="index.php">
+                                <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                                boyshabit.</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -51,7 +57,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                             <a class="nav-link active" href="about.php">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Buku Tamu</a>
+                                            <a class="nav-link" href="buku-tamu.php">Buku Tamu</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -63,7 +69,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="cart.php">
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </a>
                                 </li>
@@ -98,8 +104,8 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                                 <hr>
                                                 <div class="list-button">
-                                                    <a href="detail_product.php?id=<?= $data['id'] ?>" class="btn btn-dark ml-2">check the details</a>
-                                                    <a href="" class="cart-plus">
+                                                    <a href="detail_product.php?id_product=<?= $data['id_product'] ?>" class="btn btn-dark ml-2">check the details</a>
+                                                    <a href="cart.php" onclick="addAlert()" class="cart-plus">
                                                         <i class="fa-solid fa-cart-plus"></i>
                                                     </a>
                                                 </div>
@@ -188,7 +194,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                         <!-- Links -->
                                         <h6 class="text-uppercase fw-bold">Contact</h6>
                                         <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f8f9fa; height: 2px" />
-                                        <p><i class="fas fa-home mr-3"></i>Gajahmungkur,Semarang, Jawa Tengah, Indonesia</p>
+                                        <p><i class="fas fa-home mr-3"></i>Gajahmungkur, Semarang, Jawa Tengah, Indonesia</p>
                                         <p><i class="fas fa-envelope mr-3"></i>touroroy26@gmail.com</p>
                                         <p><i class="fas fa-phone mr-3"></i>+62 81393149021</p>
                                     </div>
@@ -204,7 +210,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                             Copyright © <script>
                                 document.write(new Date().getUTCFullYear());
                             </script>
-                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">💓Made with Love💓</a>
+                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">Made with Love❤</a>
                         </div>
                     </div>
             </footer>
@@ -220,6 +226,12 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- javascript -->
+    <script src="main.js">
+
+    </script>
+
 </body>
 
 </html>

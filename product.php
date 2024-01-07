@@ -2,7 +2,7 @@
 
 include 'koneksi.php';
 
-$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
+$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product DESC");
 
 ?>
 
@@ -23,10 +23,11 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>BoysHabit</title>
-
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </head>
 
 <body>
+    <div class="preloader"></div>
     <div class="main">
         <div class="product-wrapper">
             <!-- navigation bar -->
@@ -34,7 +35,9 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                 <div class="bt-navbar">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid hstack gap-3">
-                            <a class="navbar-brand p-2" href="#">boyshabit.</a>
+                            <a class="navbar-brand p-2" href="index.php">
+                            <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                                boyshabit.</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -51,7 +54,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                             <a class="nav-link" href="about.php">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Buku Tamu</a>
+                                            <a class="nav-link" href="buku-tamu.php">Buku Tamu</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -63,7 +66,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="cart.php">
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </a>
                                 </li>
@@ -121,9 +124,9 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                                     <h5 class="card-title"><?php echo $data['nama']  ?></h5>
                                                     <p><b><?php echo $data['harga'] ?> IDR</b></p>
                                                     <p class="card-text">Size: <?php echo $data['ukuran'] ?></p>
-                                                    <hr>
-                                                    <a href="#" class="btn btn-dark mr-5 ml-2">Add to Cart</a>
-                                                    <a href="detail_product.php?id=<?= $data['id'] ?>" class="a-detail">read more</a>
+                                                    <hr style="box-shadow: 0 3px 10px rgba(0, 0, 0, 2);background-color: rgba(0, 0, 0, .5);">
+                                                    <a href="cart.php" class="btn btn-dark mr-5 ml-2" name="beli">Add to Cart</a>
+                                                    <a href="detail_product.php?id_product=<?= $data['id_product'] ?>" class="a-detail">read more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,8 +148,6 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
             <footer>
                 <div class="footer">
                     <div class="footer-content">
-
-
                         <section class="">
                             <div class="container text-center text-md-start mt-5">
                                 <!-- Grid row -->
@@ -211,7 +212,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                                         <!-- Links -->
                                         <h6 class="text-uppercase fw-bold">Contact</h6>
                                         <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f8f9fa; height: 2px" />
-                                        <p><i class="fas fa-home mr-3"></i>Gajahmungkur,Semarang, Jawa Tengah, Indonesia</p>
+                                        <p><i class="fas fa-home mr-3"></i>Gajahmungkur, Semarang, Jawa Tengah, Indonesia</p>
                                         <p><i class="fas fa-envelope mr-3"></i>touroroy26@gmail.com</p>
                                         <p><i class="fas fa-phone mr-3"></i>+62 81393149021</p>
                                     </div>
@@ -227,7 +228,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
                             Copyright © <script>
                                 document.write(new Date().getUTCFullYear());
                             </script>
-                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">💓Made with Love💓</a>
+                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">Made with Love ❤</a>
                         </div>
                     </div>
             </footer>
@@ -240,6 +241,11 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id ASC");
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- javascript -->
+    <script src="main.js">
+
+    </script>
 </body>
 
 </html>

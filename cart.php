@@ -2,10 +2,8 @@
 
 include 'koneksi.php';
 
-$id_product = (int)$_GET['id_product'];
+$query = mysqli_query($conn, "SELECT * FROM detail_product ORDER BY id_transaksi ASC");
 
-$detail_query = mysqli_query($conn, "SELECT * FROM product WHERE id_product = $id_product");
-$data = mysqli_fetch_assoc($detail_query);
 ?>
 
 <!DOCTYPE html>
@@ -29,18 +27,14 @@ $data = mysqli_fetch_assoc($detail_query);
 </head>
 
 <body>
-    <div class="preloader">
-
-    </div>
-
-    <div class="about-container">
-        <div class="about-wrapper">
+    <div class="about-product-container">
+        <div class="about-product-wrapper">
             <!-- navigation bar -->
             <div class="sticky-top">
                 <div class="bt-navbar">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid hstack gap-3">
-                            <a class="navbar-brand p-2" href="index.html">
+                            <a class="navbar-brand p-2" href="#">
                                 <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                                 boyshabit.</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +50,7 @@ $data = mysqli_fetch_assoc($detail_query);
                                             <a class="nav-link" href="product.php">Products</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="about.php">About</a>
+                                            <a class="nav-link" href="about.php">About</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="buku-tamu.php">Buku Tamu</a>
@@ -71,7 +65,7 @@ $data = mysqli_fetch_assoc($detail_query);
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="cart.php">
+                                    <a href="">
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </a>
                                 </li>
@@ -85,46 +79,46 @@ $data = mysqli_fetch_assoc($detail_query);
 
             <!-- content section -->
 
-            <div class="main-product-detail">
+            <div class="main-product-about">
                 <div class="about-product-content">
                     <div class="title-product">
-                        <h1>DETAILS</h1>
+                        <h1>CART</h1>
                     </div>
                     <div class="list-about">
-                        <div class="card mb-3" style="width: 700px;">
-                            <center>
-                                <img src="<?php echo $data['image'] ?>" style="width: 700px;" class="card-img-top" alt="...">
-                            </center>
-                            <hr style="margin-top: 4px;">
-                            <div class="card-body">
-                                <div class="rating text-center">
-                                    <?php
-                                    $i = 0;
-                                    while ($i < $data['rating']) {
-                                    ?>
-                                        <i class="fa-solid fa-star"></i>
-                                    <?php
-                                        $i++;
-                                    }
-                                    ?>
-                                    <p><?php echo $data['rating'] ?> / 5 </p>
+                        <div class="card-div">
+                            <?php
+                            while ($data = mysqli_fetch_assoc($query)) {
+                                $query2 = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$data[id_product]'");
+                                $data2 = mysqli_fetch_assoc($query2);
+                            ?>
+                                <div class="card" style="max-width: 1200px;border-radius: 10px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4" style="display: flex;align-items: center;">
+                                            <img src="<?php echo $data2['image'] ?>" class="img-fluid rounded-start" alt="..." style="margin-left: 18px;">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title" style="margin-bottom: 5px;"><?php echo $data2['nama'] ?></h5>
+                                                <p class="card-text"><b><?php echo $data2['harga'] ?> IDR</b></p>
+                                                <p class="card-text" style="margin: 0;"><b>Description</b></p>
+                                                <p class="card-text" style="margin: 0;">Size: <?php echo $data2['ukuran'] ?></p>
+                                                <p class="card-text" style="margin: 0;">Gender: <?php echo $data2['gender'] ?></p>
+                                                <p class="card-text" style="margin: 0;">...</p>
+                                                <a href="detail_product.php?id_product=<?= $data['id_product'] ?>" class="a-detail">read more</a>
+                                                <hr>
+                                                <div class="list-button">
+                                                    <a href="" class="cart-delete">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                    </a>
+                                                    <a href="detail_product.php?id_product=<?= $data['id_product'] ?>" class="btn btn-dark" style="margin-left: 430px;">+</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h5 class="card-title text-center"><?php echo $data['nama'] ?></h5>
-                                <p class="card-text text-center"><b><?php echo $data['harga'] ?> IDR</b></p>
-                                <p class="card-text">Product Stock: <?php echo $data['stok'] ?></p>
-                                <p class="card-text"><b>Description:</b></p>
-                                <p class="card-text">Size: <?php echo $data['ukuran'] ?></p>
-                                <p class="card-text">Gender: <?php echo $data['gender'] ?></p>
-                                <p class="card-text"><?php echo $data['deskripsi'] ?></p>
-                                <hr>
-                                <div class="detail-button" style="display: flex; justify-content: space-between; align-items: center;">
-                                    <a href="javascript:history.go(-1)" style="text-decoration: none;">
-                                        <p class="card-text" style="color: grey;">
-                                            < back</p>
-                                    </a>
-                                    <a href="cart.php" onclick="addAlert()" class="btn">Add to Cart</a>
-                                </div>
-                            </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -203,7 +197,7 @@ $data = mysqli_fetch_assoc($detail_query);
                                         <!-- Links -->
                                         <h6 class="text-uppercase fw-bold">Contact</h6>
                                         <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f8f9fa; height: 2px" />
-                                        <p><i class="fas fa-home mr-3"></i>Gajahmungkur, Semarang, Jawa Tengah, Indonesia</p>
+                                        <p><i class="fas fa-home mr-3"></i>Gajahmungkur,Semarang, Jawa Tengah, Indonesia</p>
                                         <p><i class="fas fa-envelope mr-3"></i>touroroy26@gmail.com</p>
                                         <p><i class="fas fa-phone mr-3"></i>+62 81393149021</p>
                                     </div>
@@ -235,11 +229,6 @@ $data = mysqli_fetch_assoc($detail_query);
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <!-- javascript -->
-    <script src="main.js">
-
-    </script>
 </body>
 
 </html>

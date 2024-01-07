@@ -2,10 +2,8 @@
 
 include 'koneksi.php';
 
-$id_product = (int)$_GET['id_product'];
-
-$detail_query = mysqli_query($conn, "SELECT * FROM product WHERE id_product = $id_product");
-$data = mysqli_fetch_assoc($detail_query);
+$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
+$data = mysqli_fetch_assoc($query);
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +27,7 @@ $data = mysqli_fetch_assoc($detail_query);
 </head>
 
 <body>
+
     <div class="preloader">
 
     </div>
@@ -40,7 +39,7 @@ $data = mysqli_fetch_assoc($detail_query);
                 <div class="bt-navbar">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid hstack gap-3">
-                            <a class="navbar-brand p-2" href="index.html">
+                            <a class="navbar-brand p-2" href="indes.php">
                                 <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                                 boyshabit.</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,10 +55,10 @@ $data = mysqli_fetch_assoc($detail_query);
                                             <a class="nav-link" href="product.php">Products</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="about.php">About</a>
+                                            <a class="nav-link active" href="#">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="buku-tamu.php">Buku Tamu</a>
+                                            <a class="nav-link" href="#">Buku Tamu</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -85,45 +84,43 @@ $data = mysqli_fetch_assoc($detail_query);
 
             <!-- content section -->
 
-            <div class="main-product-detail">
-                <div class="about-product-content">
+            <div class="main-about">
+                <div class="about-content">
                     <div class="title-product">
-                        <h1>DETAILS</h1>
+                        <h1>BUKU TAMU</h1>
                     </div>
-                    <div class="list-about">
-                        <div class="card mb-3" style="width: 700px;">
-                            <center>
-                                <img src="<?php echo $data['image'] ?>" style="width: 700px;" class="card-img-top" alt="...">
-                            </center>
-                            <hr style="margin-top: 4px;">
-                            <div class="card-body">
-                                <div class="rating text-center">
-                                    <?php
-                                    $i = 0;
-                                    while ($i < $data['rating']) {
-                                    ?>
-                                        <i class="fa-solid fa-star"></i>
-                                    <?php
-                                        $i++;
-                                    }
-                                    ?>
-                                    <p><?php echo $data['rating'] ?> / 5 </p>
-                                </div>
-                                <h5 class="card-title text-center"><?php echo $data['nama'] ?></h5>
-                                <p class="card-text text-center"><b><?php echo $data['harga'] ?> IDR</b></p>
-                                <p class="card-text">Product Stock: <?php echo $data['stok'] ?></p>
-                                <p class="card-text"><b>Description:</b></p>
-                                <p class="card-text">Size: <?php echo $data['ukuran'] ?></p>
-                                <p class="card-text">Gender: <?php echo $data['gender'] ?></p>
-                                <p class="card-text"><?php echo $data['deskripsi'] ?></p>
-                                <hr>
-                                <div class="detail-button" style="display: flex; justify-content: space-between; align-items: center;">
-                                    <a href="javascript:history.go(-1)" style="text-decoration: none;">
-                                        <p class="card-text" style="color: grey;">
-                                            < back</p>
-                                    </a>
-                                    <a href="cart.php" onclick="addAlert()" class="btn">Add to Cart</a>
-                                </div>
+                    <div class="main-input">
+                        <div class="box-input">
+                            <div class="form-input">
+                                <form action="">
+                                    <label for=""><b>Nama</b></label>
+                                    <input type="text" name="nama" id="nama" size="40">
+                                    <label for=""><b>Alamat Tinggal</b></label>
+                                    <input type="text" name="alamat" id="alamat" size="40">
+                                    <label for=""><b>Email</b></label>
+                                    <input type="email" name="email" id="email" size="40">
+                                    <label for=""><b>Jenis Kelamin</b></label>
+                                    <div class="jenis-kelamin">
+                                        <label for="">Perempuan</label>
+                                        <input type="radio" name="jl" id="p" size="40">
+                                        <label for="">Laki-Laki</label>
+                                        <input type="radio" name="jl" id="l" size="40">
+                                    </div>
+                                    <label for="">Pilihan Sosial Media</label>
+                                    <div class="sosmed-div">
+                                        <div class="sosmed">
+                                            <label for="">Facebook</label>
+                                            <input type="checkbox" name="facebook" id="facebook">
+                                            <label for="">Twitter</label>
+                                            <input type="checkbox" name="twitter" id="twitter">
+                                            <label for="">Instagram</label>
+                                            <input type="checkbox" name="instagram" id="instagram">
+                                        </div>
+                                    </div>
+                                    <label for="">Pesan</label>
+                                    <textarea name="" id="" cols="50" rows="5" style="background: grey;color: #f8f9fa;outline:none;border-radius: 10px;"></textarea>
+                                    <button class="btn btn-dark">Submit</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -219,7 +216,7 @@ $data = mysqli_fetch_assoc($detail_query);
                             Copyright © <script>
                                 document.write(new Date().getUTCFullYear());
                             </script>
-                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">Made with Love❤</a>
+                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">Made with Love ❤</a>
                         </div>
                     </div>
             </footer>
@@ -236,7 +233,6 @@ $data = mysqli_fetch_assoc($detail_query);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <!-- javascript -->
     <script src="main.js">
 
     </script>

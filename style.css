@@ -7,8 +7,54 @@
 /* navbar */
 
 body {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+/* ======= PRELOADER ======== */
+
+.preloader{
+    background: #f8f9fa;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s, visibility 0.75s;
+}
+.preloader-hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader::after{
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 7px solid #dddddd;
+    border-top-color: #1d1e1f;
+    border-radius: 50%;
+    animation: loading .9s ease infinite;
+}
+
+@keyframes loading {
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}
+
+
+/* ======= PRELOADER END======== */
 
 /*========================================== INDEX.PHP CSS END=======================================*/
 
@@ -33,6 +79,10 @@ body {
 
 .navbar-brand {
     font-weight: bold;
+}
+
+.navbar-nav{
+    margin-right: 40px;
 }
 
 .nav-item a {
@@ -76,16 +126,16 @@ body {
 
 /* hero section */
 
-.hero-section{
+.hero-section {
     background-image: url("https://lh3.googleusercontent.com/pw/ABLVV85UuoshUUQLPmQOI_TrHpWlgAlwn4pnGcS5DjI0t4XtqQsG0JZrOt4jJAMCO0UyOhPTTxe564CHXlV1Bc6EM1bETaE7fXD0NF7ydoXDmMCPQO9ol51rZYQWulplnl0o65KZEMCOuF1kPhCqddsAb5-JN-dXgeFZV9v9xB_KgkvlzxBn-1TdKquvjV9L-Ptr-nOmKQRg48ZipcXoN4JfzmzEgIiXlVxjZxsm24IAm8ThsZmXsVv9qMx4ML8OORMWctPcVMoSeF-T87-Bw-SEZVz-nprPtzM3xwveKXc8CCwjZ04VYxs2E9LXY8SP3awJwzRzn_0RfldlZgFsHKME9s2bYzrtd6ti7hhp2lIb99OdwYHbBB5-atXuhskAPMsbHf7wTx3lKv7RyGDlW9weQcMge3qLLW8Q0VeOITkC2MdRLt_-lcS0z4YiTIzd0v9emLEJe1uybzsaAdKxv3AZjC8aP9AWwSgsqvgKMujb2W_lnCSqxjKjZYHIkt6hIqN8yBTzomiLEUDmgN8F8ORO1bPLruIxiU4OA8c0Xqyr_J1NE5SIl8sYR4WDO-uuBdDha49N-J16XDe1jXVdD6qejQkythlkD8p47wzMT4LX_irobbvjB0AaEa-_io02K5iD7_VrINHYMs5WpTPA5pQ54Pa80rzd25gUHwE-AUHUtSoo5s8lirRiYr9JuSTNRFDWtSX-5kh532bsGGunDWuby8zf4mhb8yPz8qmQEQpeyHScEYFn3r_IfQ7zwT8TwdXREAHx2xcNbXy7h5WBtynpbpVLdvwbWMiVoUCvUdLuAI5YoakhcyIsm2cTfaC_gmeDLZX7YAwj0dvC2Peqp1WIuxYTcFxdb1afL05xS3XAxv_TOKtYijh7A4qUKaBeM6c_6qJlwsfFcUcRbABxmE_6s458aB0Hx7zNxJXiTXyGLNKogO03LRZ69ggsztwT5fPnF4Iy0dghOD8mv0ALuj1faXadsrtD58vZ7DaKnNQNSnkYwQI9Si7sPer-wD5lUJcv-ZJV3n2ShqiU0nXO1AX3CQ4_jq5IuGJ3Aio3s0z30a1DDdr7Do6C=w953-h953-s-no-gm?authuser=0");
     background-size: cover;
     background-position: center;
 }
-.hero-main{
-    
-}
+
+.hero-main {}
+
 .hero {
-    
+
     display: flex;
     justify-content: center;
     position: static;
@@ -154,14 +204,17 @@ body {
 .product-dashboard {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     background: #1d1e1f;
+    background-image: url('https://cdn.discordapp.com/attachments/843046027958288407/1192956279908474961/contour.png?ex=65aaf61d&is=6598811d&hm=da2a5d84520a9a413f6fdf30dddd2073cffa2a84be55c06b24b6677c51c46585&');
+    background-size: cover;
+    height: 93vh;
 }
 
 .title {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -381,6 +434,7 @@ body {
     margin-right: 200px;
     background-image: url("https://cdn.discordapp.com/attachments/843046027958288407/1192956279908474961/contour.png?ex=65aaf61d&is=6598811d&hm=da2a5d84520a9a413f6fdf30dddd2073cffa2a84be55c06b24b6677c51c46585&");
     background-size: cover;
+    /* border: solid red; */
 }
 
 .about-card {
@@ -390,6 +444,22 @@ body {
     align-items: center;
 }
 
+.about-card .card {
+    border: solid transparent;
+    border-radius: 10px;
+    transition: .2s ease-in-out;
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+.about-card .card:hover {
+    border: 2px solid #1d1e1f;
+    border-radius: 10px;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 20);
+}
+
+
+
 /* ===============================ABOUT.PHP CSS END======================================*/
 
 
@@ -398,6 +468,8 @@ body {
 /* ===============================ABOUT_PRODUCT.PHP CSS ======================================*/
 
 .about-product-content {
+    min-height: 100vh;
+    /* border: solid red; */
     border-left: 1px solid rgba(28, 31, 33, .2);
     border-right: 1px solid rgba(28, 31, 33, .2);
     margin-left: 200px;
@@ -412,7 +484,8 @@ body {
     justify-content: center;
     align-items: center;
 }
-.card-div{
+
+.card-div {
     margin-bottom: 40px;
 }
 
@@ -429,6 +502,17 @@ body {
 
 .cart-plus {
     margin-left: 400px;
+}
+
+
+.cart-delete i {
+    color: #1d1e1f;
+}
+
+.cart-delete i:hover {
+    color: #b9b9b9;
+    transform: scale(1.3);
+    transition: .1s linear;
 }
 
 .cart-plus i {
@@ -472,7 +556,10 @@ body {
 /* footer project section */
 
 .footer {
-    background: #1c1f21;
+    background: #1d1e1f;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-content {
@@ -481,6 +568,7 @@ body {
 
 .footer-content .container {
     color: grey;
+    max-width: 1920px;
 }
 
 #footer-logo {
@@ -491,3 +579,86 @@ body {
 
 
 /* footer project section */
+
+.display-shop{
+    display: none;
+}
+
+.add-to-cart{
+    background: rgb(0, 0, 0, .5);
+    color: #1c1f21;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s, visibility 0.75s;
+}
+
+.input-item{
+    margin-left: 700px;
+}
+
+.input-item input{
+    border: 2px solid black;
+    border-radius: 20px;
+    align-items: center;
+    height: 35px;
+    width: 100px;
+    font-size: 20px;
+    
+}
+
+.main-input{
+    min-height: 75vh;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-input{
+    /* border: 1px solid grey; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+    background: #f8f9fa;
+    width: 700px;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input{
+    height: 500px;
+    width: 700px;
+}
+
+.form-input form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #1d1e1f;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.form-input form input{
+    border: none;
+    border-bottom: 1px solid #1d1e1f;
+    outline: none;
+    background: none;
+    color: #f8f9fa;
+    margin-bottom: 20px;
+}
+
+.sosmed-div{
+    display: flex;
+    flex-direction: column;
+}
