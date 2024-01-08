@@ -39,7 +39,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
                     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid hstack gap-3">
                             <a class="navbar-brand p-2" href="index.php">
-                            <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                                <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                                 boyshabit.</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -207,7 +207,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
                                             <h5 class="card-title">About This Website</h5>
                                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                             <hr>
-                                            <a href="#" class="btn btn-dark">See More</a>
+                                            <a href="this_website.php" class="btn btn-dark">See More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -226,14 +226,14 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
                                     <!-- Grid row -->
                                     <div class="row mt-3">
                                         <!-- Grid column -->
-                                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 mt-4">
                                             <!-- Content -->
-                                            <h6 class="text-uppercase fw-bold" style="color: #f8f9fa;" id="footer-logo">BOYSHABIT.</h6>
-                                            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f8f9fa; height: 2px" />
+
+                                            <div class="text-uppercase fw-bold" style="color: #f8f9fa;" id="footer-logo">
+                                                <a href="index.php"> <img style="width: 60%;padding-bottom: 20px;" src="https://cdn.discordapp.com/attachments/843046027958288407/1193975078594019448/boyshabit-transparent-logo.png?ex=65aeaaf1&is=659c35f1&hm=cbfaf396f251180f4d6b9f4941ad4394aa1b8d869af7944f2d0041a0823b7997&" alt=""></a>
+                                            </div>
                                             <p>
-                                                Here you can use rows and columns to organize your footer
-                                                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                elit.
+                                                Boyshabit adalah destinasi fashion anak muda dengan koleksi trendy dan nyaman. Kami fokus pada desain stylish dan kualitas terbaik untuk menemani kegiatan sehari-hari anda. Temukan pilihan pakaianmu di Boyshabit!
                                             </p>
                                         </div>
                                         <!-- Grid column -->
@@ -316,7 +316,12 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
 
 
         <!-- SHOPPING BOX -->
+        <?php
+        $id_product = (int)$_GET['id_product'];
 
+        $detail_query = mysqli_query($conn, "SELECT * FROM product WHERE id_product = $id_product");
+        $detail_data = mysqli_fetch_assoc($detail_query);
+        ?>
         <div class="display-shop" id="add-to-cart">
             <div class="add-to-cart">
                 <div class="card mb-3" style="max-width: 1200px;min-height: 300px;display: flex;border-radius: 10px;padding: 10px; padding-bottom: 25px;">
@@ -327,7 +332,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
                     </div>
                     <div class="row g-0" style="display: flex; justify-content: center;align-items: center;">
                         <div class="col-md-4">
-                            <img src="" class="img-fluid rounded-start" alt="...">
+                            <img src="<?php echo $detail_data['image'] ?>" class="" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

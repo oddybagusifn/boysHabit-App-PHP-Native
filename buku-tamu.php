@@ -1,11 +1,3 @@
-<?php
-
-include 'koneksi.php';
-
-$query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
-$data = mysqli_fetch_assoc($query);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,10 +47,10 @@ $data = mysqli_fetch_assoc($query);
                                             <a class="nav-link" href="product.php">Products</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#">About</a>
+                                            <a class="nav-link" href="about.php">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Buku Tamu</a>
+                                            <a class="nav-link active" href="#">Buku Tamu</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -90,37 +82,61 @@ $data = mysqli_fetch_assoc($query);
                         <h1>BUKU TAMU</h1>
                     </div>
                     <div class="main-input">
-                        <div class="box-input">
-                            <div class="form-input">
-                                <form action="">
-                                    <label for=""><b>Nama</b></label>
-                                    <input type="text" name="nama" id="nama" size="40">
-                                    <label for=""><b>Alamat Tinggal</b></label>
-                                    <input type="text" name="alamat" id="alamat" size="40">
-                                    <label for=""><b>Email</b></label>
-                                    <input type="email" name="email" id="email" size="40">
-                                    <label for=""><b>Jenis Kelamin</b></label>
-                                    <div class="jenis-kelamin">
-                                        <label for="">Perempuan</label>
-                                        <input type="radio" name="jl" id="p" size="40">
-                                        <label for="">Laki-Laki</label>
-                                        <input type="radio" name="jl" id="l" size="40">
+                        <div class="input-card">
+                            <div class="card" style="width: 45rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center"><b>Masukan data diri anda</b></h5>
+                                    <hr>
+                                    <div class="card-text">
+                                        <form action="action_post.php" method="post">
+                                            <div class="input-div">
+                                                <table style="display: flex;justify-content: center;">
+                                                    <tr>
+                                                        <td><label for="nama"><b>Nama</b></label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="text" name="nama" id="nama" size="55" class="input-text" required><br><br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label for="alamat"><b>Alamat Tinggal</b></label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="text" name="alamat" id="alamat" size="55" class="input-text" required><br><br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label for="email"><b>Email</b></label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="email" name="email" id="email" size="55" class="input-text" required><br><br></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="jenis-kelamin">
+                                                    <label for=""><b>Jenis Kelamin</b></label><br>
+                                                    <label for="p">Perempuan</label>
+                                                    <input type="radio" name="jenisKelamin" id="p" size="40" value="Perempuan" required>
+                                                    <label for="l">Laki-Laki</label>
+                                                    <input type="radio" name="jenisKelamin" id="l" size="40" value="Laki-laki" required><br>
+                                                </div>
+                                                <label for=""><b>Pilihan Sosial Media</b></label>
+                                                <div class="sosmed-div">
+                                                    <div class="sosmed">
+                                                        <label for="facebook">Facebook</label>
+                                                        <input type="checkbox" name="sosmed" id="facebook" value="Facebook">
+                                                        <label for="twitter">Twitter</label>
+                                                        <input type="checkbox" name="sosmed" id="twitter" value="Twitter">
+                                                        <label for="instagram">Instagram</label>
+                                                        <input type="checkbox" name="sosmed" id="instagram" value="Instagram">
+                                                    </div>
+                                                </div>
+                                                <label for="">Pesan</label>
+                                                <textarea name="pesan" id="pesan" cols="50" rows="5" style="background: #f8f9fa;color: #f8f9fa;outline:none;border-radius: 10px;color: black;"></textarea>
+                                                <br>
+                                                <input type="reset" value="Reset" id="reset" class="btn btn-dark" style="margin-bottom: 10px;">
+                                                <input type="submit" value="Submit" id="submit" class="btn btn-dark">
+                                            </div>
+                                        </form>
                                     </div>
-                                    <label for="">Pilihan Sosial Media</label>
-                                    <div class="sosmed-div">
-                                        <div class="sosmed">
-                                            <label for="">Facebook</label>
-                                            <input type="checkbox" name="facebook" id="facebook">
-                                            <label for="">Twitter</label>
-                                            <input type="checkbox" name="twitter" id="twitter">
-                                            <label for="">Instagram</label>
-                                            <input type="checkbox" name="instagram" id="instagram">
-                                        </div>
-                                    </div>
-                                    <label for="">Pesan</label>
-                                    <textarea name="" id="" cols="50" rows="5" style="background: grey;color: #f8f9fa;outline:none;border-radius: 10px;"></textarea>
-                                    <button class="btn btn-dark">Submit</button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -141,16 +157,16 @@ $data = mysqli_fetch_assoc($query);
                                 <!-- Grid row -->
                                 <div class="row mt-3">
                                     <!-- Grid column -->
-                                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                                        <!-- Content -->
-                                        <h6 class="text-uppercase fw-bold" id="footer-logo">BOYSHABIT.</h6>
-                                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f8f9fa; height: 2px" />
-                                        <p>
-                                            Here you can use rows and columns to organize your footer
-                                            content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit.
-                                        </p>
-                                    </div>
+                                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 mt-4">
+                                            <!-- Content -->
+
+                                            <div class="text-uppercase fw-bold" style="color: #f8f9fa;" id="footer-logo">
+                                                <a href="index.php"> <img style="width: 60%;padding-bottom: 20px;" src="https://cdn.discordapp.com/attachments/843046027958288407/1193975078594019448/boyshabit-transparent-logo.png?ex=65aeaaf1&is=659c35f1&hm=cbfaf396f251180f4d6b9f4941ad4394aa1b8d869af7944f2d0041a0823b7997&" alt=""></a>
+                                            </div>
+                                            <p>
+                                                Boyshabit adalah destinasi fashion anak muda dengan koleksi trendy dan nyaman. Kami fokus pada desain stylish dan kualitas terbaik untuk menemani kegiatan sehari-hari anda. Temukan pilihan pakaianmu di Boyshabit!
+                                            </p>
+                                        </div>
                                     <!-- Grid column -->
 
                                     <!-- Grid column -->
@@ -222,7 +238,6 @@ $data = mysqli_fetch_assoc($query);
             </footer>
 
             <!-- footer Section End -->
-
 
 
 

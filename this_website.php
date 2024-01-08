@@ -3,7 +3,7 @@
 include 'koneksi.php';
 
 $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
-
+$data = mysqli_fetch_assoc($query);
 ?>
 
 <!DOCTYPE html>
@@ -27,18 +27,22 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
 </head>
 
 <body>
+
     <div class="preloader">
 
     </div>
 
-    <div class="about-product-container">
-        <div class="about-product-wrapper">
+    <div class="about-container" style="background: url('https://cdn.discordapp.com/attachments/843046027958288407/1192956279908474961/contour.png?ex=65aaf61d&is=6598811d&hm=da2a5d84520a9a413f6fdf30dddd2073cffa2a84be55c06b24b6677c51c46585&');
+    background-position: center;
+    background-size: cover;
+    ">
+        <div class="about-wrapper">
             <!-- navigation bar -->
             <div class="sticky-top">
                 <div class="bt-navbar">
                     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid hstack gap-3">
-                            <a class="navbar-brand p-2" href="index.php">
+                            <a class="navbar-brand p-2" href="indes.php">
                                 <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                                 boyshabit.</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,40 +87,29 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
 
             <!-- content section -->
 
-            <div class="main-product-about">
-                <div class="about-product-content">
-                    <div class="title-product">
-                        <h1>ABOUT PRODUCTS</h1>
+            <div class="about-website">
+                <div class="about-website-hero">
+                    <div class="about-website-next" style="margin-top: 150px;">
+                        <h3 style="text-align: center;font-weight: 900;">MOHON MAAF WEBSITE INI SEDANG DALAM TAHAP PENGEMBANGAN<br>
+                            JADI TOLONG BERSABAR YA GES!
+                        </h3>
+                        <img style="border-radius: 20px ;" src="https://cdn.discordapp.com/attachments/843046027958288407/1193962288579878912/tenor.gif?ex=65ae9f08&is=659c2a08&hm=7cc1de15da0f3d7d8c16b4bd7aaded9da313632627d76e4a16c8db4c4964040d&" alt="">
+                        <p style="font-size: 20px;font-weight: 500;margin-top: 10px;">Biarkan mas-mas developer ini memasak...</p>
+                        <br>
                     </div>
-                    <div class="list-about">
-                        <div class="card-div">
-                            <?php
-                            while ($data = mysqli_fetch_assoc($query)) {
-                            ?>
-                                <div class="card mb-3" style="max-width: 1000px;border-radius: 10px;">
-                                    <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img src="<?php echo $data['image'] ?>" class="img-fluid rounded-start" alt="...">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><?php echo $data['nama'] ?></h5>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <hr>
-                                                <div class="list-button">
-                                                    <a href="detail_product.php?id_product=<?= $data['id_product'] ?>" class="btn btn-dark ml-2">check the details</a>
-                                                    <a href="cart.php" onclick="addAlert()" class="cart-plus">
-                                                        <i class="fa-solid fa-cart-plus"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php
-                            }
-                            ?>
-                        </div>
+                    <div class="hero-website-img">
+
+                    </div>
+                    <div class="about-website-text">
+                        <h1 style="font-weight: 900;">Selamat datang di BoysHabit!</h1>
+                        <p style="font-weight: 500;font-size: 20px;">
+                            BoysHabit adalah destinasi pilihan untuk pakaian anak muda yang trendy dan nyaman. <br>
+                            Di Boyshabit, kami menawarkan beragam koleksi pakaian trendy untuk anak muda. Kami fokus pada desain yang stylish dan kualitas yang baik, agar Anda bisa tampil percaya diri setiap hari. <br><br>
+                            Kami sangat peduli dengan pengalaman belanja Anda. Kami berkomitmen untuk memberikan layanan pelanggan terbaik dan memastikan bahwa setiap produk yang kami tawarkan tidak hanya membuat anda bahagia, tetapi juga nyaman dalam setiap aktivitasnya. <br><br>
+                            Terima kasih telah memilih Boyshabit sebagai pilihan utama Anda dalam mencari pakaian yang keren dan berkualitas. Ayo temukan gaya yang pas untukmu di koleksi kami! <br><br>
+                            Salam hangat,
+                            Developer Boyshabit
+                        </p>
                     </div>
                 </div>
             </div>
@@ -136,15 +129,15 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
                                 <div class="row mt-3">
                                     <!-- Grid column -->
                                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 mt-4">
-                                            <!-- Content -->
+                                        <!-- Content -->
 
-                                            <div class="text-uppercase fw-bold" style="color: #f8f9fa;" id="footer-logo">
-                                                <a href="index.php"> <img style="width: 60%;padding-bottom: 20px;" src="https://cdn.discordapp.com/attachments/843046027958288407/1193975078594019448/boyshabit-transparent-logo.png?ex=65aeaaf1&is=659c35f1&hm=cbfaf396f251180f4d6b9f4941ad4394aa1b8d869af7944f2d0041a0823b7997&" alt=""></a>
-                                            </div>
-                                            <p>
-                                                Boyshabit adalah destinasi fashion anak muda dengan koleksi trendy dan nyaman. Kami fokus pada desain stylish dan kualitas terbaik untuk menemani kegiatan sehari-hari anda. Temukan pilihan pakaianmu di Boyshabit!
-                                            </p>
+                                        <div class="text-uppercase fw-bold" style="color: #f8f9fa;" id="footer-logo">
+                                            <a href="index.php"> <img style="width: 60%;padding-bottom: 20px;" src="https://cdn.discordapp.com/attachments/843046027958288407/1193975078594019448/boyshabit-transparent-logo.png?ex=65aeaaf1&is=659c35f1&hm=cbfaf396f251180f4d6b9f4941ad4394aa1b8d869af7944f2d0041a0823b7997&" alt=""></a>
                                         </div>
+                                        <p>
+                                            Boyshabit adalah destinasi fashion anak muda dengan koleksi trendy dan nyaman. Kami fokus pada desain stylish dan kualitas terbaik untuk menemani kegiatan sehari-hari anda. Temukan pilihan pakaianmu di Boyshabit!
+                                        </p>
+                                    </div>
                                     <!-- Grid column -->
 
                                     <!-- Grid column -->
@@ -210,7 +203,7 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
                             Copyright © <script>
                                 document.write(new Date().getUTCFullYear());
                             </script>
-                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">Made with Love❤</a>
+                            <a class="text-white" href="https://www.instagram.com/oddybagusifn_">Made with Love ❤</a>
                         </div>
                     </div>
             </footer>
@@ -227,11 +220,9 @@ $query = mysqli_query($conn, "SELECT * FROM product ORDER BY id_product ASC");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <!-- javascript -->
     <script src="main.js">
 
     </script>
-
 </body>
 
 </html>

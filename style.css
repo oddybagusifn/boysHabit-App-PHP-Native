@@ -14,12 +14,12 @@ body {
 
 /* ======= PRELOADER ======== */
 
-.preloader{
+.preloader {
     background: #f8f9fa;
     height: 100vh;
     width: 100%;
     position: fixed;
-    z-index: 100;
+    z-index: 9999999999;
     top: 0;
     left: 0;
     width: 100vw;
@@ -29,12 +29,13 @@ body {
     align-items: center;
     transition: opacity 0.75s, visibility 0.75s;
 }
-.preloader-hidden{
+
+.preloader-hidden {
     opacity: 0;
     visibility: hidden;
 }
 
-.preloader::after{
+.preloader::after {
     content: "";
     width: 40px;
     height: 40px;
@@ -45,10 +46,11 @@ body {
 }
 
 @keyframes loading {
-    from{
+    from {
         transform: rotate(0turn);
     }
-    to{
+
+    to {
         transform: rotate(1turn);
     }
 }
@@ -71,8 +73,8 @@ body {
 }
 
 .dash-wrapper {
-    background-image: url("https://lh3.googleusercontent.com/fife/AGXqzDlBBT-a5l96r9fUdoWGgx3pB6Tyj6XCEmo9kOW3WArjVWNzTNFdCybfGTEfubZPSbH443bNM1sJ9cDqnKAd18sJse8595dIgoutLDj33c45NOjljC9FBTNlGb8DLK7DbpyhN4S-PRoAz3T9WRTqSZewq33EIO3fPflnSUoFZkjAZmAizfMbM8RWeBueV5CK27z9XhrV7Fh-V69ySvagGTEIK4i_Qc9Ub-hjE0G8WoKox0hNaHMI99izhDmodUwmrlgqQxokSXqTS7aJ4-NiB6GhLKAw7jwDOOdQc0fwouSwk6FpFfMRkh4a6vqQF6E5PO6w3ta54KiXsf-poEDkrI5SKJ-LvefzwnwxMZVaNTEkjlIZmv5bRBZcdzaAQPtARGjrVZ3XvymeEfplHJKLUtMfjAwNyQmzhsryErRCtfcaP8IzXsm5dhZ7dpgZf_i9iSwjC6Wx6CwpF9h4qaIZd8iSEXVimSVS1p6qOeRsBUkMpb6Tq38guLM9G26nSq2rlgD5XSg3wBEz-VcjdJ67tzI46xYKR6qHt_5APi45YWSKxdxu9eX7PldVPb33K3AOs30-ccfxb4Nc2b4N6DBtKC9Xp7ynVi4Mf7RxI8cfFw5jhvKiOU7nCztl3NprrHITG4-GqR5CmYBB5tfLPJKxi5bYQTRj1tDiKGfjD5GSKOzcxd3j2_glzD_H_TZPFd5GVWpbRqTdiBtun7bcWO957hdWfOdT2-XYEVW0WLNqzQtDpqgE59I2RY2A5ODJhk6-iT9HH1BiCiRhUeSOzfvBV2r-OVVjrO6sd_sjswoCgeVHa0q8OvJ9CPoXLMYL_HpoJGnfvQyksJMaeQt6cuW4AV4pSKGjYvB4sKqEmJrTsq2KVPJKq869E0t4ZC9ezkzlEqZpfN-SSUTDXMCq-JgcP1rjFyoRM62VuT8LPJPGhNHFYCSrnYaJ4N6DWK-Dqg9HfeVrmlyHS6TiKKghIVQrMN1dS1P8-nkzjLVdol6EpwP_EkCq1yZn8jvOxtCdGapqdE8N2ldtJcvj37iDBfOWWQPoRstpz4-tCPpbBz7zh2y0qc8hv7wqByBfnHgNlFUAetNZfrftvtlFp03FwuFeQrVab2Ow4CRhaVRu7E8y2-1aA30MUJIMZuyREX81UTfU1SZmRm5raqLHenWiC-cGf6hE34C4k5RWAo6ByPPDIO4CaAJqO6S6dMNSU2lJxnlEK23mz3hnrfQiK2zw5lkJrjrGsfmJAtxe9czPpe9Mr7VlUjaGHOIF-TKoD0-25yEjz9_8UPimRWqkxjmWikFv6IJSD-QARGCvKssKSnEPKSd4RgSVzT9rY8xicVCf26RvuFzBJiIxRYoetKg14Ew8DE7tSd_1gZVzPIUAxD8tL8hcZ5bsYpXC4zCYEY9KzEdS5e3yN5_ZU7tlyvW9cbq0INZyvoXsCqa70wKCBD5Imn7me9buCW4cC3Eqr78Tn6QkRftyE-C1C9n65FpZ1mOMwOdptAnyUNGjBBk9KEQcgf0n6yJfM90kiXWfVFjJSyps_Ts1QliGDJZF7o_aLH4rEqpsthgFBIKgXoTHboeKv4rvXOtjvrURmGhNmW4YCLEe0m1BGKaHoVDje6X_2E9wh9Gogg99EbN_zjKfcklYccYSaIVAd7M8vxyOyOyfSFNO0AcYLcZg3oMmv66n3bNNd6PH9q8q9SZQPhg6fIdgxuRJcuOb5HmvB_KA5SiWkmrM7hlAUXKsOqUCqLD202rppye7XHClbZwRRs_E3A_XR7qt_tY_PwfbsxEaBwAIYTa65OXTllRJ7hV0f3uRgHGgEfW8qEGuYUFs7XZY2y15FaUWKRUUaVB3IEI7=s953-w953-h953-s-no-gm?authuser=0");
-    background-size: cover;
+    /* background-image: url("https://cdn.discordapp.com/attachments/843046027958288407/1193987352264200212/black-contour.png?ex=65aeb65f&is=659c415f&hm=514e601697fe4ccdab3523d8e6cdcafd7dc55feb5cd37c328175b93cd135cf2f&"); */
+    background-size: 120rem;
     background-position: center;
     height: 303.4vh;
 }
@@ -81,7 +83,7 @@ body {
     font-weight: bold;
 }
 
-.navbar-nav{
+.navbar-nav {
     margin-right: 40px;
 }
 
@@ -451,6 +453,7 @@ body {
     transform: scale(1);
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
 }
+
 .about-card .card:hover {
     border: 2px solid #1d1e1f;
     border-radius: 10px;
@@ -580,11 +583,11 @@ body {
 
 /* footer project section */
 
-.display-shop{
+.display-shop {
     display: none;
 }
 
-.add-to-cart{
+.add-to-cart {
     background: rgb(0, 0, 0, .5);
     color: #1c1f21;
     height: 100vh;
@@ -600,29 +603,29 @@ body {
     transition: opacity 0.75s, visibility 0.75s;
 }
 
-.input-item{
+.input-item {
     margin-left: 700px;
 }
 
-.input-item input{
+.input-item input {
     border: 2px solid black;
     border-radius: 20px;
     align-items: center;
     height: 35px;
     width: 100px;
     font-size: 20px;
-    
+
 }
 
-.main-input{
-    min-height: 75vh;
+.main-input {
     margin-bottom: 50px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.box-input{
+.box-input {
     /* border: 1px solid grey; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
     border-radius: 10px;
@@ -634,31 +637,81 @@ body {
     align-items: center;
 }
 
-.form-input{
+.form-input {
     height: 500px;
     width: 700px;
+    border: solid red;
 }
 
-.form-input form{
+.input-card .card {
+    /* border: solid yellow; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.input-card form {
+    /* border: solid red; */
+    display: flex;
+    justify-content: center;
+}
+
+.input-card .card input {
+    border: none;
+    border-bottom: 1px solid #1d1e1f;
+}
+
+.input-div {
+    /* border: solid black; */
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-text {
+    background: none;
+    outline: none;
+}
+
+.about-website-hero{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero-website-img {
+    background-image: url("https://cdn.discordapp.com/attachments/843046027958288407/1193647035581218918/brand-img.png?ex=65ad796e&is=659b046e&hm=fbaa350e7edde24c23ff6fc1ff17b1b1dba1e175484010da88a55365a19067e1&");
+    background-size: cover;
+    background-position: center;
+    width: 60%;
+    height: 500px;
+    margin-top: 50px;
+    border-radius: 15px;
+}
+
+.about-website-text{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #1d1e1f;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    padding: 40px;
 }
 
-.form-input form input{
-    border: none;
-    border-bottom: 1px solid #1d1e1f;
-    outline: none;
-    background: none;
-    color: #f8f9fa;
-    margin-bottom: 20px;
+.about-website-text p{
+    margin-top: 50px;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
-.sosmed-div{
+.about-website-next{
+    /* border: solid red; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
